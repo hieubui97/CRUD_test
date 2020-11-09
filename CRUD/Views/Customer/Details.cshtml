@@ -1,0 +1,77 @@
+﻿@model CRUD.Models.Customer
+
+@{
+    Layout = null;
+    ViewBag.Title = "Details";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+    <div style="background-color:dodgerblue; color:white;text-align:center;line-height:50px;margin-bottom:40px;"> Details Customer</div>
+
+    <div class="container">
+        <fieldset>
+            <legend style="font-family:Arial Black;color:Green">Customer Report</legend>
+
+            <div style="margin-left: 12px;">
+                <hr />
+
+
+                <div class="form-group row">
+                    <div class="col-md-2">
+                        @Html.DisplayNameFor(model => model.Name)
+                    </div>
+                    <div class="col-md-10">
+                        @Html.DisplayFor(model => model.Name)
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-2">
+                        @Html.DisplayNameFor(model => model.Address)
+                    </div>
+                    <div class="col-md-10">
+                        @Html.DisplayFor(model => model.Address)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-2">
+                        @Html.DisplayNameFor(model => model.Mobileno)
+                    </div>
+                    <div class="col-md-10">
+                        @Html.DisplayFor(model => model.Mobileno)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-2">
+                        @Html.DisplayNameFor(model => model.Birthdate)
+                    </div>
+                    <div class="col-md-10">
+                        @Html.DisplayFor(model => model.Birthdate)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-2">
+                        @Html.DisplayNameFor(model => model.EmailID)
+                    </div>
+                    <div class="col-md-10">
+                        @Html.DisplayFor(model => model.EmailID)
+                    </div>
+                </div>
+
+            </div>
+        </fieldset>
+        <p style="color:Blue;font-family:Arial; margin-left:12px;">
+            @Html.ActionLink("Back to Customer Records", "ShowAllCustomerDetails")
+        </p>
+    </div>
+
+</body>
+</html> 

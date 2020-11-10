@@ -11,6 +11,11 @@ namespace CRUD.DataAccess
 {
     public class DataAccessLayer
     {
+        public const int Insert = 1;
+        public const int Update = 2;
+        public const int Delete = 3;
+        public const int Select = 4;
+        public const int Search = 5;
         public string InsertData(Customer objcust)
         {
             SqlConnection con = null;
@@ -27,7 +32,7 @@ namespace CRUD.DataAccess
                 cmd.Parameters.AddWithValue("@Mobileno", objcust.Mobileno);
                 cmd.Parameters.AddWithValue("@Birthdate", objcust.Birthdate);
                 cmd.Parameters.AddWithValue("@EmailID", objcust.EmailID);
-                cmd.Parameters.AddWithValue("@Query", 1);
+                cmd.Parameters.AddWithValue("@Query", Insert);
                 con.Open();
                 result = cmd.ExecuteScalar().ToString();
                 return result;
@@ -56,7 +61,7 @@ namespace CRUD.DataAccess
                 cmd.Parameters.AddWithValue("@Mobileno", objcust.Mobileno);
                 cmd.Parameters.AddWithValue("@Birthdate", objcust.Birthdate);
                 cmd.Parameters.AddWithValue("@EmailID", objcust.EmailID);
-                cmd.Parameters.AddWithValue("@Query", 2);
+                cmd.Parameters.AddWithValue("@Query", Update);
                 con.Open();
                 result = cmd.ExecuteScalar().ToString();
                 return result;
@@ -85,7 +90,7 @@ namespace CRUD.DataAccess
                 cmd.Parameters.AddWithValue("@Mobileno", null);
                 cmd.Parameters.AddWithValue("@Birthdate", null);
                 cmd.Parameters.AddWithValue("@EmailID", null);
-                cmd.Parameters.AddWithValue("@Query", 3);
+                cmd.Parameters.AddWithValue("@Query", Delete);
                 con.Open();
                 result = cmd.ExecuteNonQuery();
                 return result;
@@ -115,7 +120,7 @@ namespace CRUD.DataAccess
                 cmd.Parameters.AddWithValue("@Mobileno", null);
                 cmd.Parameters.AddWithValue("@Birthdate", null);
                 cmd.Parameters.AddWithValue("@EmailID", null);
-                cmd.Parameters.AddWithValue("@Query", 4);
+                cmd.Parameters.AddWithValue("@Query", Select);
                 con.Open();
                 SqlDataAdapter da = new SqlDataAdapter();
                 da.SelectCommand = cmd;
@@ -162,7 +167,7 @@ namespace CRUD.DataAccess
                 cmd.Parameters.AddWithValue("@Mobileno", null);
                 cmd.Parameters.AddWithValue("@Birthdate", null);
                 cmd.Parameters.AddWithValue("@EmailID", null);
-                cmd.Parameters.AddWithValue("@Query", 5);
+                cmd.Parameters.AddWithValue("@Query", Search);
                 SqlDataAdapter da = new SqlDataAdapter();
                 da.SelectCommand = cmd;
                 ds = new DataSet();
@@ -176,7 +181,6 @@ namespace CRUD.DataAccess
                     cobj.Mobileno = ds.Tables[0].Rows[i]["Mobileno"].ToString();
                     cobj.EmailID = ds.Tables[0].Rows[i]["EmailID"].ToString();
                     cobj.Birthdate = Convert.ToDateTime(ds.Tables[0].Rows[i]["Birthdate"].ToString());
-
                 }
                 return cobj;
             }

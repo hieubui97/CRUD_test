@@ -25,13 +25,10 @@ namespace CRUD.Controllers
             {
                 DataAccessLayer objDB = new DataAccessLayer();
                 string result = objDB.InsertData(objCustomer);
-                //ViewData["result"] = result;  
-                TempData["result1"] = result;
-                ModelState.Clear(); //clearing model  
-                                    //return View();  
+                TempData["Insert"] = result;
+                ModelState.Clear(); //clearing model   
                 return RedirectToAction("ShowAllCustomerDetails");
             }
-
             else
             {
                 ModelState.AddModelError("", "Error in saving data");
@@ -51,10 +48,6 @@ namespace CRUD.Controllers
         [HttpGet]
         public ActionResult Details(string ID)
         {
-            //Customer objCustomer = new Customer();  
-            //DataAccessLayer objDB = new DataAccessLayer(); //calling class DBdata  
-            //objCustomer.ShowallCustomer = objDB.Selectalldata();  
-            //return View(objCustomer);  
             Customer objCustomer = new Customer();
             DataAccessLayer objDB = new DataAccessLayer(); //calling class DBdata  
             return View(objDB.SelectDatabyID(ID));
@@ -76,10 +69,8 @@ namespace CRUD.Controllers
             {
                 DataAccessLayer objDB = new DataAccessLayer(); //calling class DBdata  
                 string result = objDB.UpdateData(objCustomer);
-                //ViewData["result"] = result;  
-                TempData["result2"] = result;
+                TempData["Update"] = result;
                 ModelState.Clear(); //clearing model  
-                //return View();  
                 return RedirectToAction("ShowAllCustomerDetails");
             }
             else
@@ -94,9 +85,8 @@ namespace CRUD.Controllers
         {
             DataAccessLayer objDB = new DataAccessLayer();
             int result = objDB.DeleteData(ID);
-            TempData["result3"] = result;
+            TempData["Delete"] = result;
             ModelState.Clear(); //clearing model  
-                                //return View();  
             return RedirectToAction("ShowAllCustomerDetails");
         }
     }

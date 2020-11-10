@@ -17,7 +17,7 @@
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
-    <h2 style="background-color: dodgerblue;color: white; text-align: center; font-style: oblique">HieuBui's MVC Customer CRUD Operation</h2>
+    <h2 style="background-color: dodgerblue;color: white; text-align: center; font-style: oblique; line-height:50px;">HieuBui's MVC Customer CRUD Operation</h2>
     <div class="container">
         <div style="font-family:Arial Black;">
             @*<h2 style="text-align:center"></h2>*@
@@ -80,29 +80,23 @@
 
                 }
             </table>
-            @if (TempData["result1"] != null)
+            @if (TempData["Insert"] != null)
             {
                 <script type="text/javascript">
-
                     alert("Record Is Inserted Successfully");
                 </script>
-
             }
-            @if (TempData["result2"] != null)
+            @if (TempData["Update"] != null)
             {
                 <script type="text/javascript">
-
                     alert("Record Is Updated Successfully");
                 </script>
-
             }
-            @if (TempData["result3"] != null)
+            @if (TempData["Delete"] != null)
             {
                 <script type="text/javascript">
-
                     alert("Record Is Deleted Successfully");
                 </script>
-
             }
             <br />
             <br />
@@ -112,6 +106,5 @@
             <!--</footer>-->
         </div>
     </div>
-
 </body>
 </html> 

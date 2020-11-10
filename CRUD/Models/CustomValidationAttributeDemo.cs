@@ -15,8 +15,8 @@ namespace CRUD.Models
             {
                 if (value != null)
                 {
-                    DateTime _birthJoin = Convert.ToDateTime(value);
-                    if (_birthJoin > DateTime.Now)
+                    DateTime birthDate = Convert.ToDateTime(value);
+                    if (birthDate > DateTime.Now)
                     {
                         return new ValidationResult("Birth date can not be greater than current date.");
                     }
